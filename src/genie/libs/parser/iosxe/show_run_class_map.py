@@ -43,14 +43,18 @@ class ShowRunningConfigClassMap(ShowRunningConfigClassMapSchema):
     Parser for show running-config class-map {class_map_name}
     """
 
-    cli_command = "show running-config class-map {class_map_name}"
+    cli_command = [
+        "show running-config class-map {class_map_name}",
+        "show running-config class-map",
+    ]
 
-    def cli(self, output=None):
-        """
-        Parses the CLI output of 'show running-config class-map {class_map_name}'.
-        """
-        if not output:
-            return {}
+    def cli(self, class_map_name=None, output=None):
+        if output is None:
+            if class_map_name:
+                cmd = self.cli_command[0].format(explicit_path_name=class_map_name)
+            else:
+                cmd = self.cli_command[1]
+            output = self.device.execute(cmd)
 
         parsed_dict = {}
 
