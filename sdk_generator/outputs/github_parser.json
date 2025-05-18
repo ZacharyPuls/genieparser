@@ -93818,12 +93818,12 @@
         "doc": "\n    Parser for show running-config class-map {class_map_name}\n    ",
         "module_name": "iosxe.show_run_class_map",
         "package": "genie.libs.parser",
-        "schema": "{\n    'class_map': {\n        Any('*'): {\n            'match_type': str,\n            Optional('match_conditions'): [Or ({'type': 'access-group', 'name': <class 'str'>}, {'type': 'cos', 'value': <class 'int'>}, {'type': 'qos-group', 'value': <class 'int'>}, {'type': 'mpls_experimental_topmost', 'value': <class 'int'>})],\n        },\n    },\n}",
+        "schema": "{\n    'class_map': {\n        Any('*'): {\n            'match_type': str,\n            Optional('access_group'): str,\n            Optional('cos'): int,\n            Optional('discard_class'): str,\n            Optional('dscp'): Or (<class 'int'>, <class 'str'>),\n            Optional('group_object'): {\n                Optional('source'): str,\n                Optional('destination'): str,\n            },\n            Optional('ip'): str,\n            Optional('mpls_experimental_topmost'): int,\n            Optional('precedence'): int,\n            Optional('qos_group'): int,\n            Optional('service_instance'): int,\n            Optional('vlan'): {\n                'id': int,\n                Optional('inner'): bool,\n            },\n        },\n    },\n}",
         "tokens": {
           "os": "iosxe"
         },
         "uid": "show_running-config_class-map",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run_class_map.py#L41"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run_class_map.py#L38"
       }
     }
   },
@@ -93834,12 +93834,12 @@
         "doc": "\n    Parser for show running-config class-map {class_map_name}\n    ",
         "module_name": "iosxe.show_run_class_map",
         "package": "genie.libs.parser",
-        "schema": "{\n    'class_map': {\n        Any('*'): {\n            'match_type': str,\n            Optional('match_conditions'): [Or ({'type': 'access-group', 'name': <class 'str'>}, {'type': 'cos', 'value': <class 'int'>}, {'type': 'qos-group', 'value': <class 'int'>}, {'type': 'mpls_experimental_topmost', 'value': <class 'int'>})],\n        },\n    },\n}",
+        "schema": "{\n    'class_map': {\n        Any('*'): {\n            'match_type': str,\n            Optional('access_group'): str,\n            Optional('cos'): int,\n            Optional('discard_class'): str,\n            Optional('dscp'): Or (<class 'int'>, <class 'str'>),\n            Optional('group_object'): {\n                Optional('source'): str,\n                Optional('destination'): str,\n            },\n            Optional('ip'): str,\n            Optional('mpls_experimental_topmost'): int,\n            Optional('precedence'): int,\n            Optional('qos_group'): int,\n            Optional('service_instance'): int,\n            Optional('vlan'): {\n                'id': int,\n                Optional('inner'): bool,\n            },\n        },\n    },\n}",
         "tokens": {
           "os": "iosxe"
         },
         "uid": "show_running-config_class-map_class_map_name",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run_class_map.py#L41"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run_class_map.py#L38"
       }
     }
   },
