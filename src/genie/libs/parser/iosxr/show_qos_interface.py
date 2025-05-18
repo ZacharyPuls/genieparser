@@ -1,7 +1,7 @@
 import re
 
 from genie.metaparser import MetaParser  # type: ignore
-from genie.metaparser.util.schema import Any, Optional, Or, Schema  # type: ignore
+from genie.metaparser.util.schemaengine import Any, Optional, Or, Schema  # type: ignore
 
 
 # ======================================================

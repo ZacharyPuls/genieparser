@@ -1,7 +1,7 @@
 import re
 
 from genie.metaparser import MetaParser
-from genie.metaparser.util.schema import Any, Optional, Or, Schema
+from genie.metaparser.util.schemaengine import Any, Optional, Or, Schema
 
 
 class ShowRunningConfigClassMapSchema(MetaParser):
