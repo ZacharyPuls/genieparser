@@ -51,7 +51,7 @@ class ShowRunningConfigClassMap(ShowRunningConfigClassMapSchema):
     def cli(self, class_map_name=None, output=None):
         if output is None:
             if class_map_name:
-                cmd = self.cli_command[0].format(explicit_path_name=class_map_name)
+                cmd = self.cli_command[0].format(class_map_name=class_map_name)
             else:
                 cmd = self.cli_command[1]
             output = self.device.execute(cmd)
