@@ -101,8 +101,8 @@ class ShowRunPolicyMap(ShowRunPolicyMapSchema):
         # police cir 100000 pir  70000 conform-action transmit  exceed-action drop
         # police cir 8000000 bc 4000 be 1000 conform-action transmit  exceed-action transmit  violate-action drop
         p1 = re.compile(
-            r"^police +cir +(?P<cir_bps>(\d+))( +pir +(?P<pir_bps>(\d+)))?"
-            r"( +bc +(?P<cir_bc_bytes>(\d+)))?( +be +(?P<cir_be_bytes>(\d+)))?"
+            r"^police +cir +(?P<cir_bps>(\d+))( +bc +(?P<cir_bc_bytes>(\d+)))?"
+            r"( +pir +(?P<pir_bps>(\d+)))?( +be +(?P<cir_be_bytes>(\d+)))?"
             r"( +conform-action +(?P<conformed>(\w+)) +exceed-action +(?P<exceeded>(\w+))"
             r"( +violate-action +(?P<violated>(\w+)))?)?$"
         )
