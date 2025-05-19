@@ -93623,15 +93623,15 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunPolicyMap",
-        "doc": " Parser for\n        * \"show run policy-map {name}\"\n    ",
+        "doc": "Parser for\n    * \"show run policy-map {name}\"\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
-        "schema": "{\n    'policy_map': {\n        Any('*'): {\n            'class': {\n                Any('*'): {\n                    Optional('qos_set'): {\n                        Optional('ip precedence'): str,\n                        Optional('precedence'): str,\n                        Optional('dscp'): str,\n                        Optional('cos'): str,\n                        Optional('qos-group'): str,\n                    },\n                    Optional('police'): {\n                        Optional('cir_bps'): str,\n                        Optional('pir_bps'): str,\n                        Optional('cir_bc_bytes'): str,\n                        Optional('cir_be_bytes'): str,\n                        Optional('conformed'): str,\n                        Optional('exceeded'): str,\n                    },\n                    Optional('bandwidth_percent'): str,\n                    Optional('priority_percent'): str,\n                    Optional('priority_level'): str,\n                    Optional('target_shape_rate'): str,\n                    Optional('service_policy'): str,\n                    Optional('service_policy_input'): str,\n                    Optional('service_policy_output'): str,\n                },\n            },\n        },\n    },\n}",
+        "schema": "{\n    'policy_map': {\n        Any('*'): {\n            'class': {\n                Any('*'): {\n                    Optional('qos_set'): {\n                        Optional('ip precedence'): str,\n                        Optional('precedence'): str,\n                        Optional('dscp'): str,\n                        Optional('cos'): str,\n                        Optional('qos-group'): str,\n                        Optional('mpls_exp_topmost'): str,\n                        Optional('mpls_exp_imposition'): str,\n                    },\n                    Optional('police'): {\n                        Optional('cir_bps'): str,\n                        Optional('pir_bps'): str,\n                        Optional('cir_bc_bytes'): str,\n                        Optional('cir_be_bytes'): str,\n                        Optional('conformed'): str,\n                        Optional('exceeded'): str,\n                        Optional('violated'): str,\n                    },\n                    Optional('bandwidth_percent'): str,\n                    Optional('priority_percent'): str,\n                    Optional('priority_level'): str,\n                    Optional('target_shape_rate'): str,\n                    Optional('service_policy'): str,\n                    Optional('service_policy_input'): str,\n                    Optional('service_policy_output'): str,\n                },\n            },\n        },\n    },\n}",
         "tokens": {
           "os": "iosxe"
         },
         "uid": "show_run_policy-map_name",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L69"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L81"
       }
     }
   },
@@ -93687,7 +93687,7 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunningConfigAAA",
-        "doc": "Parser for :\n        * 'show running-config aaa'\n    ",
+        "doc": "Parser for :\n    * 'show running-config aaa'\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
         "schema": "{\n    Optional('radius'): {\n        'server': {\n            Any('*'): {\n                Optional('address_type'): str,\n                Optional('address'): str,\n                Optional('auth_port'): int,\n                Optional('acct_port'): int,\n                Optional('key'): str,\n            },\n        },\n    },\n    Optional('tacacs'): {\n        'server': {\n            Any('*'): {\n                Optional('address_type'): str,\n                Optional('address'): str,\n                Optional('auth_port'): int,\n                Optional('acct_port'): int,\n                Optional('key'): str,\n            },\n        },\n    },\n    Optional('group_server'): {\n        Any('*'): {\n            Any('*'): {\n                Optional('server_name'): str,\n                Optional('vrf'): str,\n                Optional('source_interface'): str,\n            },\n        },\n    },\n    Optional('new_model'): bool,\n    Optional('session_id'): str,\n}",
@@ -93695,7 +93695,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_aaa",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L3156"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L3496"
       }
     }
   },
@@ -93711,7 +93711,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_aaa_radius-server",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L4908"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L5437"
       }
     }
   },
@@ -93719,7 +93719,7 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunningAAAUserName",
-        "doc": "Parser for:\n        * 'show running-config aaa user-name'\n    ",
+        "doc": "Parser for:\n    * 'show running-config aaa user-name'\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
         "schema": "{\n    'username': {\n        Any('*'): {\n            Optional('creation_time'): int,\n            Optional('password'): {\n                Optional('type'): int,\n                Optional('password'): str,\n            },\n            Optional('privilege'): int,\n            Optional('common_criteria_policy'): str,\n            Optional('view'): str,\n            Optional('type'): str,\n            Optional('onetime'): bool,\n            Optional('secret'): {\n                Optional('type'): int,\n                Optional('secret'): str,\n            },\n        },\n    },\n}",
@@ -93727,7 +93727,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_aaa_user-name",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L2755"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L3055"
       }
     }
   },
@@ -93735,7 +93735,7 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunningConfigAAAUsername",
-        "doc": "Parser for :\n        * 'show running-config aaa username'\n    ",
+        "doc": "Parser for :\n    * 'show running-config aaa username'\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
         "schema": "{\n    'username': {\n        Any('*'): {\n            Optional('creation_time'): int,\n            Optional('password'): {\n                Optional('type'): int,\n                Optional('password'): str,\n            },\n            Optional('privilege'): int,\n            Optional('common_criteria_policy'): str,\n            Optional('view'): str,\n            Optional('type'): str,\n            Optional('onetime'): bool,\n            Optional('secret'): {\n                Optional('type'): int,\n                Optional('secret'): str,\n            },\n        },\n    },\n}",
@@ -93743,7 +93743,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_aaa_username",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L2874"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L3177"
       }
     }
   },
@@ -93751,7 +93751,7 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunAllSectionInterface",
-        "doc": " Parser for\n        * show running-config all | sec {interface}\n    ",
+        "doc": "Parser for\n    * show running-config all | sec {interface}\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
         "schema": "{\n    'interfaces': {\n        Any('*'): {\n            Optional('mvrp_timer_leave_all'): int,\n            Optional('mvrp_timer_leave'): int,\n            Optional('mvrp_timer_join'): int,\n            Optional('mvrp_timer_periodic'): bool,\n            Optional('mvrp'): bool,\n            Optional('logging_event_link_status'): bool,\n            Optional('logging_event_trunk_status'): bool,\n            Optional('authentication_periodic'): bool,\n            Optional('authentication_port_control'): str,\n            Optional('authentication_timer_reauthenticate_server'): bool,\n            Optional('authentication_linksec_policy'): bool,\n            Optional('access_session_control_direction'): str,\n            Optional('access_session_host_mode'): str,\n            Optional('access_session_closed'): bool,\n            Optional('carrier_delay'): int,\n            Optional('shutdown'): bool,\n            Optional('medium_p2p'): bool,\n            Optional('ip_access_group'): str,\n            Optional('ip_arp_inspection_limit_rate'): str,\n            Optional('load_interval'): int,\n            Optional('negotiation_auto'): bool,\n            Optional('macsec_replay_protection'): bool,\n            Optional('macsec_enabled'): bool,\n            Optional('macsec_access_control'): str,\n            Optional('mtu'): int,\n            Optional('mka_policy'): str,\n            Optional('mka_primary_keychain'): str,\n            Optional('mka_fallback_keychain'): str,\n            Optional('cdp_log_mismatch_duplex'): bool,\n            Optional('cdp_tlv_location'): bool,\n            Optional('cdp_tlv_server_location'): bool,\n            Optional('cdp_tlv_app'): bool,\n            Optional('ipv6_mld_snooping_tcn_flood'): bool,\n            Optional('switchport'): bool,\n            Optional('switchport_access_vlan'): str,\n            Optional('switchport_trunk_allowed_all'): bool,\n            Optional('switchport_mode'): str,\n            Optional('switchport_nonegotiate'): bool,\n            Optional('switchport_autostate_exclude'): bool,\n            Optional('switchport_protected'): bool,\n            Optional('switchport_block_unicast'): bool,\n            Optional('switchport_block_multicast'): bool,\n            Optional('switchport_vepa_enabled'): bool,\n            Optional('ip_arp_inspection_trust'): bool,\n            Optional('ip_dhcp_snooping_information_option_allow_untrusted'): bool,\n        },\n    },\n}",
@@ -93759,7 +93759,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_all___sec_interface",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L2245"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L2520"
       }
     }
   },
@@ -93775,7 +93775,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_all___section_^interface",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L1789"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L2055"
       }
     }
   },
@@ -93783,7 +93783,7 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunningConfigAllClassMap",
-        "doc": " Parser for\n        * 'show running-config all | section class {class_map}'\n    ",
+        "doc": "Parser for\n    * 'show running-config all | section class {class_map}'\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
         "schema": "{\n    'class': {\n        Any('*'): {\n            Optional('police'): {\n                Optional('rate_pps'): int,\n                Optional('rate'): int,\n            },\n        },\n    },\n}",
@@ -93791,7 +93791,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_all___section_class_class_map",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L4845"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L5369"
       }
     }
   },
@@ -93871,7 +93871,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_flow_monitor",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L3046"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L3380"
       }
     }
   },
@@ -93959,7 +93959,7 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunInterface",
-        "doc": " Parser for\n         show running-config interface {interface},\n         show running-config | section ^interface\n    ",
+        "doc": "Parser for\n    show running-config interface {interface},\n    show running-config | section ^interface\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
         "schema": "{\n    'interfaces': {\n        Any('*'): {\n            Optional('authentication_control_direction'): str,\n            Optional('authentication_event_fail_action'): str,\n            Optional('authentication_fallback'): str,\n            Optional('authentication_host_mode'): str,\n            Optional('authentication_order'): str,\n            Optional('authentication_periodic'): bool,\n            Optional('authentication_port_control'): str,\n            Optional('authentication_priority'): str,\n            Optional('authentication_timer_inactivity'): str,\n            Optional('authentication_timer_reauthenticate_server'): bool,\n            Optional('authentication_timer_reauthenticate'): int,\n            Optional('authentication_violation'): str,\n            Optional('trust_device'): str,\n            Optional('carrier_delay'): list,\n            Optional('shutdown'): bool,\n            Optional('encapsulation_dot1q'): str,\n            Optional('description'): str,\n            Optional('dot1x_pae_authenticator'): bool,\n            Optional('dot1x_timeout_quiet_period'): str,\n            Optional('dot1x_timeout_server_timeout'): str,\n            Optional('dot1x_timeout_tx_period'): str,\n            Optional('dot1x_pae'): str,\n            Optional('dot1x_timeout_supp_timeout'): int,\n            Optional('dot1x_max_req'): int,\n            Optional('dot1x_authenticator_eap_profile'): str,\n            Optional('dot1x_timeout_held_period'): int,\n            Optional('dot1x_credentials'): str,\n            Optional('dot1x_supplicant_eap_profile'): str,\n            Optional('ip_arp_inspection_limit_rate'): str,\n            Optional('ip_dhcp_snooping_limit_rate'): str,\n            Optional('access_session_host_mode'): str,\n            Optional('access_session'): str,\n            Optional('access_session_port_control'): str,\n            Optional('ip_ospf'): {\n                Any('*'): {\n                    'area': str,\n                },\n            },\n            Optional('ipv4'): {\n                'ip': str,\n                'netmask': str,\n            },\n            Optional('ipv6'): list,\n            Optional('ipv6_ospf'): {\n                Any('*'): {\n                    'area': str,\n                },\n            },\n            Optional('ipv6_enable'): bool,\n            Optional('ipv6_destination_guard_attach_policy'): str,\n            Optional('ipv6_source_guard_attach_policy'): str,\n            Optional('ipv6_nd_raguard_attach_policy'): str,\n            Optional('ipv6_ospfv3'): {\n                Any('*'): {\n                    'area': str,\n                },\n            },\n            Optional('acl'): {\n                Optional('inbound'): {\n                    'acl_name': str,\n                    'direction': str,\n                },\n                Optional('outbound'): {\n                    'acl_name': str,\n                    'direction': str,\n                },\n            },\n            Optional('load_interval'): str,\n            Optional('mab'): bool,\n            Optional('macsec_enabled'): bool,\n            Optional('macsec_access_control'): str,\n            Optional('mtu'): int,\n            Optional('mka_policy'): str,\n            Optional('mka_primary_keychain'): str,\n            Optional('mka_fallback_keychain'): str,\n            Optional('negotiation_auto'): bool,\n            Optional('cdp'): str,\n            Optional('snmp_trap_link_status'): bool,\n            Optional('snmp_trap_mac_notification_change_added'): bool,\n            Optional('snmp_trap_mac_notification_change_removed'): bool,\n            Optional('spanning_tree_bpduguard'): str,\n            Optional('spanning_tree_portfast'): bool,\n            Optional('spanning_tree_portfast_trunk'): bool,\n            Optional('spanning_tree_bpdufilter'): str,\n            Optional('switchport_access_vlan'): str,\n            Optional('switchport_trunk_vlans'): str,\n            Optional('keepalive'): bool,\n            Optional('switchport_mode'): str,\n            Optional('switchport_trunk_native_vlan'): int,\n            Optional('input_policy'): str,\n            Optional('output_policy'): str,\n            Optional('device_tracking_attach_policy'): str,\n            Optional('switchport_nonegotiate'): str,\n            Optional('vrf'): str,\n            Optional('src_ip'): str,\n            Optional('tunnel_mode'): str,\n            Optional('tunnel_dst'): str,\n            Optional('autoroute_announce'): str,\n            Optional('autoroute_destination'): str,\n            Optional('tunnel_priority'): list,\n            Optional('tunnel_bandwidth'): int,\n            Optional('tunnel_path_option'): {\n                Any('*'): {\n                    Optional('path_type'): str,\n                    Optional('path_name'): str,\n                },\n            },\n            Optional('mpls_ip'): str,\n            Optional('channel_group'): {\n                'chg': int,\n                'mode': str,\n            },\n            Optional('power_inline'): {\n                Optional('state'): str,\n                Optional('max_watts'): str,\n            },\n            Optional('power_inline_port_priority'): str,\n            Optional('flow_monitor_input'): str,\n            Optional('flow_monitor_output'): str,\n            Optional('flow_monitor_input_v6'): str,\n            Optional('flow_monitor_output_v6'): str,\n            Optional('flow_monitor_in_sampler'): str,\n            Optional('flow_monitor_out_sampler'): str,\n            Optional('input_sampler'): str,\n            Optional('output_sampler'): str,\n            Optional('pim_mode'): str,\n            Optional('policy_type'): str,\n            Optional('output_name'): str,\n            Optional('switchport_protected'): bool,\n            Optional('switchport_block_unicast'): bool,\n            Optional('switchport_block_multicast'): bool,\n            Optional('ip_dhcp_snooping_trust'): bool,\n            Optional('ip_arp_inspection_trust'): bool,\n            Optional('lisp_mobility'): str,\n            Optional('mac_address_sticky'): str,\n            Optional('source_template'): str,\n            Optional('host_reachability_protocol'): str,\n            Optional('source_interface'): str,\n            Optional('member_vni'): {\n                Any('*'): {\n                    Optional('vrf'): str,\n                    Optional('ingress_replication'): {\n                        'enabled': bool,\n                        Optional('remote_peer_ip'): str,\n                    },\n                    Optional('mcast_group'): str,\n                    Optional('local_routing'): bool,\n                },\n            },\n            Optional('stackwise_virtual_link'): int,\n            Optional('dual_active_detection'): bool,\n            Optional('ip_dhcp_snooping_information_option_allow_untrusted'): bool,\n            Optional('speed'): int,\n            Optional('speed_nonegotiate'): bool,\n            Optional('isis'): {\n                Optional('network'): str,\n                Optional('Or ('ipv4', 'ipv6')'): {\n                    Optional('level'): {\n                        Optional('Or ('level-1', 'level-2')'): {\n                            Optional('metric'): int,\n                        },\n                    },\n                },\n            },\n            Optional('ip_verify_unicast_source_reachable_via'): str,\n            Optional('ip_verify_unicast_source_reachable_via_rx'): str,\n            Optional('ip_verify_unicast_source_reachable_via_rx_allow_self_ping'): bool,\n            Optional('ip_verify_unicast_source_reachable_via_rx_acl'): str,\n        },\n    },\n}",
@@ -93967,7 +93967,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_interface_interface",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L480"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L580"
       },
       "nxos": {
         "class": "ShowRunningConfigInterface",
@@ -94011,7 +94011,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_mdns-sd",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L1894"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L2160"
       }
     }
   },
@@ -94075,7 +94075,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config_nve",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L3489"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L3847"
       }
     }
   },
@@ -94291,7 +94291,7 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunInterface",
-        "doc": " Parser for\n         show running-config interface {interface},\n         show running-config | section ^interface\n    ",
+        "doc": "Parser for\n    show running-config interface {interface},\n    show running-config | section ^interface\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
         "schema": "{\n    'interfaces': {\n        Any('*'): {\n            Optional('authentication_control_direction'): str,\n            Optional('authentication_event_fail_action'): str,\n            Optional('authentication_fallback'): str,\n            Optional('authentication_host_mode'): str,\n            Optional('authentication_order'): str,\n            Optional('authentication_periodic'): bool,\n            Optional('authentication_port_control'): str,\n            Optional('authentication_priority'): str,\n            Optional('authentication_timer_inactivity'): str,\n            Optional('authentication_timer_reauthenticate_server'): bool,\n            Optional('authentication_timer_reauthenticate'): int,\n            Optional('authentication_violation'): str,\n            Optional('trust_device'): str,\n            Optional('carrier_delay'): list,\n            Optional('shutdown'): bool,\n            Optional('encapsulation_dot1q'): str,\n            Optional('description'): str,\n            Optional('dot1x_pae_authenticator'): bool,\n            Optional('dot1x_timeout_quiet_period'): str,\n            Optional('dot1x_timeout_server_timeout'): str,\n            Optional('dot1x_timeout_tx_period'): str,\n            Optional('dot1x_pae'): str,\n            Optional('dot1x_timeout_supp_timeout'): int,\n            Optional('dot1x_max_req'): int,\n            Optional('dot1x_authenticator_eap_profile'): str,\n            Optional('dot1x_timeout_held_period'): int,\n            Optional('dot1x_credentials'): str,\n            Optional('dot1x_supplicant_eap_profile'): str,\n            Optional('ip_arp_inspection_limit_rate'): str,\n            Optional('ip_dhcp_snooping_limit_rate'): str,\n            Optional('access_session_host_mode'): str,\n            Optional('access_session'): str,\n            Optional('access_session_port_control'): str,\n            Optional('ip_ospf'): {\n                Any('*'): {\n                    'area': str,\n                },\n            },\n            Optional('ipv4'): {\n                'ip': str,\n                'netmask': str,\n            },\n            Optional('ipv6'): list,\n            Optional('ipv6_ospf'): {\n                Any('*'): {\n                    'area': str,\n                },\n            },\n            Optional('ipv6_enable'): bool,\n            Optional('ipv6_destination_guard_attach_policy'): str,\n            Optional('ipv6_source_guard_attach_policy'): str,\n            Optional('ipv6_nd_raguard_attach_policy'): str,\n            Optional('ipv6_ospfv3'): {\n                Any('*'): {\n                    'area': str,\n                },\n            },\n            Optional('acl'): {\n                Optional('inbound'): {\n                    'acl_name': str,\n                    'direction': str,\n                },\n                Optional('outbound'): {\n                    'acl_name': str,\n                    'direction': str,\n                },\n            },\n            Optional('load_interval'): str,\n            Optional('mab'): bool,\n            Optional('macsec_enabled'): bool,\n            Optional('macsec_access_control'): str,\n            Optional('mtu'): int,\n            Optional('mka_policy'): str,\n            Optional('mka_primary_keychain'): str,\n            Optional('mka_fallback_keychain'): str,\n            Optional('negotiation_auto'): bool,\n            Optional('cdp'): str,\n            Optional('snmp_trap_link_status'): bool,\n            Optional('snmp_trap_mac_notification_change_added'): bool,\n            Optional('snmp_trap_mac_notification_change_removed'): bool,\n            Optional('spanning_tree_bpduguard'): str,\n            Optional('spanning_tree_portfast'): bool,\n            Optional('spanning_tree_portfast_trunk'): bool,\n            Optional('spanning_tree_bpdufilter'): str,\n            Optional('switchport_access_vlan'): str,\n            Optional('switchport_trunk_vlans'): str,\n            Optional('keepalive'): bool,\n            Optional('switchport_mode'): str,\n            Optional('switchport_trunk_native_vlan'): int,\n            Optional('input_policy'): str,\n            Optional('output_policy'): str,\n            Optional('device_tracking_attach_policy'): str,\n            Optional('switchport_nonegotiate'): str,\n            Optional('vrf'): str,\n            Optional('src_ip'): str,\n            Optional('tunnel_mode'): str,\n            Optional('tunnel_dst'): str,\n            Optional('autoroute_announce'): str,\n            Optional('autoroute_destination'): str,\n            Optional('tunnel_priority'): list,\n            Optional('tunnel_bandwidth'): int,\n            Optional('tunnel_path_option'): {\n                Any('*'): {\n                    Optional('path_type'): str,\n                    Optional('path_name'): str,\n                },\n            },\n            Optional('mpls_ip'): str,\n            Optional('channel_group'): {\n                'chg': int,\n                'mode': str,\n            },\n            Optional('power_inline'): {\n                Optional('state'): str,\n                Optional('max_watts'): str,\n            },\n            Optional('power_inline_port_priority'): str,\n            Optional('flow_monitor_input'): str,\n            Optional('flow_monitor_output'): str,\n            Optional('flow_monitor_input_v6'): str,\n            Optional('flow_monitor_output_v6'): str,\n            Optional('flow_monitor_in_sampler'): str,\n            Optional('flow_monitor_out_sampler'): str,\n            Optional('input_sampler'): str,\n            Optional('output_sampler'): str,\n            Optional('pim_mode'): str,\n            Optional('policy_type'): str,\n            Optional('output_name'): str,\n            Optional('switchport_protected'): bool,\n            Optional('switchport_block_unicast'): bool,\n            Optional('switchport_block_multicast'): bool,\n            Optional('ip_dhcp_snooping_trust'): bool,\n            Optional('ip_arp_inspection_trust'): bool,\n            Optional('lisp_mobility'): str,\n            Optional('mac_address_sticky'): str,\n            Optional('source_template'): str,\n            Optional('host_reachability_protocol'): str,\n            Optional('source_interface'): str,\n            Optional('member_vni'): {\n                Any('*'): {\n                    Optional('vrf'): str,\n                    Optional('ingress_replication'): {\n                        'enabled': bool,\n                        Optional('remote_peer_ip'): str,\n                    },\n                    Optional('mcast_group'): str,\n                    Optional('local_routing'): bool,\n                },\n            },\n            Optional('stackwise_virtual_link'): int,\n            Optional('dual_active_detection'): bool,\n            Optional('ip_dhcp_snooping_information_option_allow_untrusted'): bool,\n            Optional('speed'): int,\n            Optional('speed_nonegotiate'): bool,\n            Optional('isis'): {\n                Optional('network'): str,\n                Optional('Or ('ipv4', 'ipv6')'): {\n                    Optional('level'): {\n                        Optional('Or ('level-1', 'level-2')'): {\n                            Optional('metric'): int,\n                        },\n                    },\n                },\n            },\n            Optional('ip_verify_unicast_source_reachable_via'): str,\n            Optional('ip_verify_unicast_source_reachable_via_rx'): str,\n            Optional('ip_verify_unicast_source_reachable_via_rx_allow_self_ping'): bool,\n            Optional('ip_verify_unicast_source_reachable_via_rx_acl'): str,\n        },\n    },\n}",
@@ -94299,7 +94299,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config___section_^interface",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L480"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L580"
       },
       "nxos": {
         "class": "ShowRunningConfigInterface",
@@ -94375,7 +94375,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config___section_bgp",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L4451"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L4933"
       }
     }
   },
@@ -94407,7 +94407,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config___section_mac_address",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L4793"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L5314"
       }
     }
   },
@@ -94431,7 +94431,7 @@
     "folders": {
       "iosxe": {
         "class": "ShowRunRoute",
-        "doc": " \n        Parser for :-\n         show running-config | section route\n    ",
+        "doc": "\n    Parser for :-\n     show running-config | section route\n    ",
         "module_name": "iosxe.show_run",
         "package": "genie.libs.parser",
         "schema": "{\n    'routes': list,\n}",
@@ -94439,7 +94439,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config___section_route",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L4366"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L4844"
       }
     }
   },
@@ -94455,7 +94455,7 @@
           "os": "iosxe"
         },
         "uid": "show_running-config___section_vrf_definition",
-        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L4703"
+        "url": "https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser/iosxe/show_run.py#L5216"
       }
     }
   },

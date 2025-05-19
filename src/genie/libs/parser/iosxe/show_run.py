@@ -48,6 +48,8 @@ class ShowRunPolicyMapSchema(MetaParser):
                             Optional("dscp"): str,
                             Optional("cos"): str,
                             Optional("qos-group"): str,
+                            Optional("mpls_exp_topmost"): str,
+                            Optional("mpls_exp_imposition"): str,
                         },
                         Optional("police"): {
                             Optional("cir_bps"): str,
@@ -157,6 +159,12 @@ class ShowRunPolicyMap(ShowRunPolicyMapSchema):
 
         # set cos 0
         p9 = re.compile(r"^set +cos +(?P<cos>(\d+))$")
+
+        # set mpls experimental topmost 6
+        # set mpls experimental imposition 7
+        p10 = re.compile(
+            r"^set\s+mpls\s+experimental\s+(?P<label>\S+)\s+(?P<exp_value>\S+)$"
+        )
 
         for line in out.splitlines():
 
@@ -355,6 +363,27 @@ class ShowRunPolicyMap(ShowRunPolicyMapSchema):
                     "qos_set"
                 ].update({k: v for k, v in group.items() if v})
                 continue
+
+            # set mpls experimental topmost 6
+            # set mpls experimental imposition 7
+            m = p10.match(line)
+            if m:
+                group = m.groupdict()
+                if (
+                    "qos_set"
+                    not in config_dict["policy_map"][policy_map]["class"][class_name]
+                ):
+                    config_dict["policy_map"][policy_map]["class"][
+                        class_name
+                    ].setdefault("qos_set", {})
+                if group["label"] == "topmost":
+                    config_dict["policy_map"][policy_map]["class"][class_name][
+                        "qos_set"
+                    ]["mpls_exp_topmost"] = group["exp_value"]
+                if group["label"] == "imposition":
+                    config_dict["policy_map"][policy_map]["class"][class_name][
+                        "qos_set"
+                    ]["mpls_exp_imposition"] = group["exp_value"]
 
         return config_dict
 
