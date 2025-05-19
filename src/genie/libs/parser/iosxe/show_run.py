@@ -67,6 +67,7 @@ class ShowRunPolicyMapSchema(MetaParser):
                         Optional("service_policy"): str,
                         Optional("service_policy_input"): str,
                         Optional("service_policy_output"): str,
+                        Optional("queue_limit"): str,
                     },
                 }
             },
@@ -164,6 +165,14 @@ class ShowRunPolicyMap(ShowRunPolicyMapSchema):
         # set mpls experimental imposition 7
         p10 = re.compile(
             r"^set\s+mpls\s+experimental\s+(?P<label>\S+)\s+(?P<exp_value>\S+)$"
+        )
+
+        # queue-limit 500000 bytes
+        # queue-limit 300 packets
+        # queue-limit 4000 us
+        # queue-limit percent 100
+        p11 = re.compile(
+            r"^queue-limit\s+(?:(?:(?P<percent>percent)\s+(?P<percent_value>\d+))|(?:(?P<numeric_value>\d+)\s+(?P<numeric_unit>bytes|packets|us)))$"
         )
 
         for line in out.splitlines():
@@ -384,6 +393,31 @@ class ShowRunPolicyMap(ShowRunPolicyMapSchema):
                     config_dict["policy_map"][policy_map]["class"][class_name][
                         "qos_set"
                     ]["mpls_exp_imposition"] = group["exp_value"]
+
+            # queue-limit 500000 bytes
+            # queue-limit 300 packets
+            # queue-limit 4000 us
+            # queue-limit percent 100
+            m = p11.match(line)
+            if m:
+                group = m.groupdict()
+                if (
+                    "qos_set"
+                    not in config_dict["policy_map"][policy_map]["class"][class_name]
+                ):
+                    config_dict["policy_map"][policy_map]["class"][
+                        class_name
+                    ].setdefault("qos_set", {})
+                if group["percent"]:
+                    config_dict["policy_map"][policy_map]["class"][class_name][
+                        "qos_set"
+                    ]["queue_limit"] = f"{group["percent_value"]} percent"
+                else:
+                    config_dict["policy_map"][policy_map]["class"][class_name][
+                        "qos_set"
+                    ][
+                        "queue_limit"
+                    ] = f"{group["numeric_value"]} {group["numeric_unit"]}"
 
         return config_dict
 
