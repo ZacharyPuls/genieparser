@@ -401,21 +401,12 @@ class ShowRunPolicyMap(ShowRunPolicyMapSchema):
             m = p11.match(line)
             if m:
                 group = m.groupdict()
-                if (
-                    "qos_set"
-                    not in config_dict["policy_map"][policy_map]["class"][class_name]
-                ):
-                    config_dict["policy_map"][policy_map]["class"][
-                        class_name
-                    ].setdefault("qos_set", {})
                 if group["percent"]:
                     config_dict["policy_map"][policy_map]["class"][class_name][
-                        "qos_set"
-                    ]["queue_limit"] = f"{group["percent_value"]} percent"
+                        "queue_limit"
+                    ] = f"{group["percent_value"]} percent"
                 else:
                     config_dict["policy_map"][policy_map]["class"][class_name][
-                        "qos_set"
-                    ][
                         "queue_limit"
                     ] = f"{group["numeric_value"]} {group["numeric_unit"]}"
 
