@@ -208,6 +208,13 @@ class ShowRunPolicyMap(ShowRunPolicyMapSchema):
             m = p1_3.match(line)
             if m:
                 group = m.groupdict()
+                if (
+                    "police"
+                    not in config_dict["policy_map"][policy_map]["class"][class_name]
+                ):
+                    config_dict["policy_map"][policy_map]["class"][
+                        class_name
+                    ].setdefault("police", {})
                 config_dict["policy_map"][policy_map]["class"][class_name][
                     "police"
                 ].update({k: v for k, v in group.items() if v})
